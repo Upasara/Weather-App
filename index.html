@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Today's Weather</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="script.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+			integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h2>Weather</h2>
+				<div class="weather-input">
+					<input
+						type="text"
+						name="city"
+						id="city_input"
+						placeholder="Enter City Name"
+					/>
+					<button type="button" id="searchBtn">
+						<i class="fa-solid fa-magnifying-glass fa-bounce fa-lg"></i>
+						Search
+					</button>
+					<button type="button" id="locationBtn">
+						<i class="fa-solid fa-location-crosshairs fa-bounce fa-lg"></i>
+						My Location
+					</button>
+				</div>
+			</div>
+			<div class="weather-data">
+				<div class="weather-left">
+					<div class="card">
+						<div class="current-weather">
+							<div class="details">
+								<p>Now</p>
+								<h2>___&deg;C</h2>
+								<p>_____</p>
+							</div>
+							<div class="weather-icon">
+								<img
+									src="https://openweathermap.org/img/wn/04d@2x.png"
+									alt=""
+								/>
+							</div>
+						</div>
+						<hr />
+						<div class="card-footer">
+							<p><i class="fa-solid fa-calendar-days"></i>___</p>
+							<p><i class="fa-solid fa-location-dot"></i>___</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
