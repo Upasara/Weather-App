@@ -3,6 +3,11 @@
 :root {
 	--bg-color: #dddddd;
 	--bg-color-variant: white;
+	--aqi-1: lightyellow;
+	--aqi-2: yellow;
+	--aqi-3: orange;
+	--aqi-4: darkorange;
+	--aqi-5: red;
 }
 
 * {
@@ -17,6 +22,10 @@ body {
 	background-color: var(--bg-color);
 	color: black;
 	padding: 0 15px;
+}
+
+hr {
+	margin-bottom: 10px;
 }
 
 .header {
@@ -74,6 +83,157 @@ body {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+		}
+		& .card-footer p {
+			font-size: 14px;
+			margin-bottom: 10px;
+		}
+		& .forecast-item {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			place-items: center;
+			margin-bottom: 15px;
+			& .icon-wrapper {
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+	& .weather-right {
+		grid-column: span 3;
+		& h2 {
+			margin-bottom: 10px;
+		}
+		& .highlights {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 15px;
+			& .card:nth-of-type(1),
+			& .card:nth-of-type(2) {
+				grid-column: span 2;
+			}
+			& .card-head {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 10px;
+				& .airIndex {
+					padding: 5px 10px;
+					border-radius: 10px;
+					&.aqi-1 {
+						background-color: var(--aqi-1);
+					}
+					&.aqi-2 {
+						background-color: var(--aqi-2);
+					}
+					&.aqi-3 {
+						background-color: var(--aqi-3);
+					}
+					&.aqi-4 {
+						background-color: var(--aqi-4);
+					}
+					&.aqi-5 {
+						background-color: var(--aqi-5);
+					}
+				}
+			}
+			& .airIndices {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				place-items: center;
+				& p {
+					text-align: center;
+				}
+			}
+			& .sunriseSunset {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				& .item {
+					display: flex;
+					align-items: center;
+					gap: 10px;
+					& h2 {
+						margin-top: 15px;
+					}
+				}
+			}
+			& .cardItem {
+				margin-top: 15px;
+				display: flex;
+				justify-content: space-between;
+			}
+		}
+		& .hourlyForecast {
+			display: grid;
+			grid-template-columns: repeat(8, 1fr);
+			gap: 10px;
+			& .card {
+				text-align: center;
+			}
+		}
+	}
+}
+
+@media (max-width: 1100px) {
+	.weather-data {
+		grid-template-columns: repeat(3, 1fr);
+		& .weather-right {
+			grid-column: span 2;
+			& .highlights {
+				grid-template-columns: repeat(3, 1ffr);
+				& .card:nth-of-type(1) {
+					grid-column: span 2;
+				}
+			}
+			& .hourlyForecast {
+				grid-template-columns: repeat(6, 1fr);
+			}
+		}
+	}
+}
+
+@media (max-width: 1040px) {
+	.weather-data {
+		grid-template-columns: repeat(2, 1fr);
+		& .weather-right {
+			grid-column: span 1;
+			& .highlights {
+				grid-template-columns: repeat(2, 1fr);
+				& .card:nth-of-type(1) {
+					grid-column: span 2;
+				}
+			}
+			& .hourlyForecast {
+				grid-template-columns: repeat(4, 1fr);
+			}
+		}
+	}
+}
+
+@media (max-width: 990px) {
+	.weather-data .weather-right .highlights {
+		& .card {
+			grid-column: span 2;
+		}
+		& .airIndices {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+}
+
+@media (max-width: 850px) {
+	.weather-data {
+		grid-template-columns: 1fr;
+		& .weather-right .highlights {
+			& .card:nth-of-type(3),
+			& .card:nth-of-type(4),
+			& .card:nth-of-type(5),
+			& .card:nth-of-type(6),
+			& .card:nth-of-type(7) {
+				grid-column: span 1;
+			}
+			& .airIndices {
+				grid-template-columns: repeat(5, 1fr);
+			}
 		}
 	}
 }
