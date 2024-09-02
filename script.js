@@ -48,13 +48,13 @@ function getWeatherDetails(name, lat, lon, country, state) {
 			let { co, no, no2, o3, so2, pm2_5, pm10, nh3 } = data.list[0].components;
 			aqiCard.innerHTML = `
               <div class="card-head">
-								<p>Air Quality Index</p>
+								<p class="airQ">Air Quality Index</p>
 								<p class="airIndex aqi-${data.list[0].main.aqi}">${
 				aqiList[data.list[0].main.aqi - 1]
 			}</p>
 							</div>
 							<div class="airIndices">
-								<i class="fa-solid fa-wind fa-xl"></i>
+								<i class='bx bx-wind bx-fade-right bx-lg' ></i>
 								<div class="item">
 									<p>PM2.5</p>
 									<h2>${pm2_5}</h2>
@@ -134,12 +134,12 @@ function getWeatherDetails(name, lat, lon, country, state) {
 					.format('hh:mm A');
 			sunriseCard.innerHTML = `
 							<div class="cardHead">
-								<p>Sunrise & Sunset</p>
+								<p class="sunRS">Sunrise & Sunset</p>
 							</div>
 							<div class="sunriseSunset">
 								<div class="item">
 									<div class="icon">
-										<i class="fa-regular fa-sun fa-xl"></i>
+										<i class='bx bx-sun bx-tada bx-lg' ></i>
 									</div>
 									<div>
 										<p>Sunrise</p>
@@ -148,7 +148,7 @@ function getWeatherDetails(name, lat, lon, country, state) {
 								</div>
 								<div class="item">
 									<div class="icon">
-										<i class="fa-regular fa-sun fa-xl"></i>
+										<i class='bx bx-sun bx-fade-down bx-lg' ></i>
 									</div>
 									<div>
 										<p>Sunset</p>

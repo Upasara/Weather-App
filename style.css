@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-	--bg-color: #dddddd;
-	--bg-color-variant: white;
-	--aqi-1: lightyellow;
-	--aqi-2: yellow;
-	--aqi-3: orange;
-	--aqi-4: darkorange;
-	--aqi-5: red;
+	--bg-color: #15719f;
+	--bg-color-variant: #2b235a;
+	--aqi-1: yellow;
+	--aqi-2: orange;
+	--aqi-3: darkorange;
+	--aqi-4: red;
+	--aqi-5: darkred;
 }
 
 * {
@@ -15,12 +15,14 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	color: white;
 }
 
 body {
 	min-height: 100vh;
 	background-color: var(--bg-color);
-	color: black;
+}
+.container {
 	padding: 0 15px;
 }
 
@@ -35,10 +37,11 @@ hr {
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 10px;
-	padding: 15px 0;
+	padding: 15px 15px;
+	background-color: var(--bg-color-variant);
 
 	& #city_input {
-		background-color: var(--bg-color-variant);
+		background-color: var(--bg-color);
 		border: none;
 		padding: 7px 10px;
 		border-radius: 10px;
@@ -49,7 +52,7 @@ hr {
 		border: none;
 		padding: 6px 10px;
 		border-radius: 15px;
-		background-color: var(--bg-color-variant);
+		background-color: var(--bg-color);
 		cursor: pointer;
 	}
 
@@ -57,7 +60,7 @@ hr {
 		border: none;
 		padding: 6px 10px;
 		border-radius: 15px;
-		background-color: var(--bg-color-variant);
+		background-color: #c40c0c;
 		cursor: pointer;
 	}
 }
@@ -102,7 +105,10 @@ hr {
 	& .weather-right {
 		grid-column: span 3;
 		& h2 {
-			margin-bottom: 10px;
+			margin-bottom: 15px;
+		}
+		& .todayH {
+			margin-bottom: 20px;
 		}
 		& .highlights {
 			display: grid;
@@ -115,7 +121,11 @@ hr {
 			& .card-head {
 				display: flex;
 				justify-content: space-between;
-				margin-bottom: 10px;
+				margin-bottom: 20px;
+				& p.airQ {
+					font-size: x-large;
+					font-weight: 500;
+				}
 				& .airIndex {
 					padding: 5px 10px;
 					border-radius: 10px;
@@ -143,6 +153,14 @@ hr {
 				& p {
 					text-align: center;
 				}
+				& h2 {
+					font-size: larger;
+				}
+			}
+			& .cardHead .sunRS {
+				font-size: x-large;
+				font-weight: 500;
+				margin-bottom: 20px;
 			}
 			& .sunriseSunset {
 				display: grid;
@@ -155,6 +173,9 @@ hr {
 						margin-top: 15px;
 					}
 				}
+			}
+			& .cardHead p {
+				font-size: 18px;
 			}
 			& .cardItem {
 				margin-top: 15px;
