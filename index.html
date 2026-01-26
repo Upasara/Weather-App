@@ -1,279 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Today's Weather</title>
-		<link rel="stylesheet" href="style.css" />
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Snap</title>
 
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-			integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
-		/>
-	</head>
-	<body>
-		<div class="header">
-			<h2>Today's Weather &nbsp;<i class="bx bx-cloud-lightning bx-sm"></i></h2>
-			<div class="weather-input">
-				<input
-					type="text"
-					name="city"
-					id="city_input"
-					placeholder="Enter City Name"
-				/>
-				<button type="button" id="searchBtn">
-					<i class="bx bx-search-alt-2"></i>
-					Search
-				</button>
-				<button type="button" id="locationBtn">
-					<i class="bx bx-current-location bx-flashing"></i>
-					My Location
-				</button>
-			</div>
-		</div>
-		<div class="container">
-			<div class="weather-data">
-				<div class="weather-left">
-					<div class="card">
-						<div class="current-weather">
-							<div class="details">
-								<p>Now</p>
-								<h2>___&deg;C</h2>
-								<p>_____</p>
-							</div>
-							<div class="weather-icon">
-								<img
-									src="https://openweathermap.org/img/wn/04d@2x.png"
-									alt=""
-								/>
-							</div>
-						</div>
-						<hr />
-						<div class="card-footer">
-							<p><i class="fa-solid fa-calendar-days"></i>___</p>
-							<p><i class="fa-solid fa-location-dot"></i>___</p>
-						</div>
-					</div>
-					<div class="card">
-						<h2>5 day forecast</h2>
-						<div class="day-forecast">
-							<div class="forecast-item">
-								<div class="icon-wrapper">
-									<img src="https://openweathermap.org/img/wn/02d.png" alt="" />
-									<span>___&deg;C</span>
-								</div>
-								<p>___</p>
-								<p>___</p>
-							</div>
+  <link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+   integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+   crossorigin="anonymous"
+   referrerpolicy="no-referrer"
+  />
+  <link
+   rel="stylesheet"
+   href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+  />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ </head>
+ <body
+  class="bg-blue-100 text-gray-800 min-h-screen flex flex-col"
+  style="
+   background-image: url('./sky1.png');
+   background-size: cover;
+   background-position: center;
+  "
+ >
+  <main class="flex-1">
+   <div
+    class="min-h-screen flex flex-col items-center pt-0 md:pt-30 lg:pt-20 p-5"
+   >
+    <div
+     class="md:p-10 min-h-screen md:min-h-0 flex flex-col items-center justify-center mb-10"
+    >
+     <h1
+      class="bg-gradient-to-r from-[#38bdf8] via-[#60a5fa] to-[#818cf8] bg-clip-text text-transparent text-5xl md: text-6xl text-center font-bold mb-10 md:mb-5"
+      data-aos="fade-up"
+     >
+      Weather Snap
+     </h1>
+     <p
+      class="text-gray-200 text-lg md:text-xl mb-15 md:mb-10 text-center"
+      data-aos="fade-up"
+      data-aos-delay="400"
+     >
+      Real-time weather forecasts ⛅, air quality insights 🌬️, and accurate
+      updates 📈 — all in one clean dashboard.
+     </p>
+     <button
+      class="group px-4 py-2 bg-white/50 hover:bg-white/70 border-2 border-blue-500 rounded-lg shadow-md hover:shadow-lg duration-300 mb-15 md:mb-0"
+      data-aos="fade-up"
+      data-aos-delay="600"
+     >
+      <a href="weather.html" class="flex flex-row gap-1 font-mono"
+       >Check Weather
+       <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-chevron-right-icon lucide-chevron-right text-indigo-500 group-hover:translate-x-0.5 duration-300"
+       >
+        <path d="m9 18 6-6-6-6" />
+       </svg>
+      </a>
+     </button>
+     <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="100"
+      height="70"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-chevron-down-icon lucide-chevron-down md:hidden text-gray-400 animate-bounce"
+     >
+      <path d="m6 9 6 6 6-6" />
+     </svg>
+    </div>
 
-							<div class="forecast-item">
-								<div class="icon-wrapper">
-									<img src="https://openweathermap.org/img/wn/02d.png" alt="" />
-									<span>___&deg;C</span>
-								</div>
-								<p>___</p>
-								<p>___</p>
-							</div>
-
-							<div class="forecast-item">
-								<div class="icon-wrapper">
-									<img src="https://openweathermap.org/img/wn/02d.png" alt="" />
-									<span>___&deg;C</span>
-								</div>
-								<p>___</p>
-								<p>___</p>
-							</div>
-
-							<div class="forecast-item">
-								<div class="icon-wrapper">
-									<img src="https://openweathermap.org/img/wn/02d.png" alt="" />
-									<span>___&deg;C</span>
-								</div>
-								<p>___</p>
-								<p>___</p>
-							</div>
-
-							<div class="forecast-item">
-								<div class="icon-wrapper">
-									<img src="https://openweathermap.org/img/wn/02d.png" alt="" />
-									<span>___&deg;C</span>
-								</div>
-								<p>___</p>
-								<p>___</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="weather-right">
-					<h2 class="todayH">Today's Highlights</h2>
-					<div class="highlights">
-						<div class="card">
-							<div class="card-head">
-								<p class="airQ">Air Quality Index</p>
-								<p class="airIndex aqi-1">Good</p>
-							</div>
-							<div class="airIndices">
-								<i class="bx bx-wind bx-lg"></i>
-								<div class="item">
-									<p>PM2.5</p>
-									<h2>___</h2>
-								</div>
-								<div class="item">
-									<p>PM10</p>
-									<h2>___</h2>
-								</div>
-								<div class="item">
-									<p>SO2</p>
-									<h2>___</h2>
-								</div>
-								<div class="item">
-									<p>CO</p>
-									<h2>___</h2>
-								</div>
-								<div class="item">
-									<p>NO</p>
-									<h2>___</h2>
-								</div>
-								<div class="item">
-									<p>NO2</p>
-									<h2>___</h2>
-								</div>
-								<div class="item">
-									<p>NH3</p>
-									<h2>___</h2>
-								</div>
-								<div class="item">
-									<p>O3</p>
-									<h2>___</h2>
-								</div>
-							</div>
-						</div>
-						<div class="card">
-							<div class="cardHead">
-								<p class="sunRS">Sunrise & Sunset</p>
-							</div>
-							<div class="sunriseSunset">
-								<div class="item">
-									<div class="icon">
-										<i class="bx bx-sun bx-lg"></i>
-									</div>
-									<div>
-										<p>Sunrise</p>
-										<h2>___</h2>
-									</div>
-								</div>
-								<div class="item">
-									<div class="icon">
-										<i class="bx bx-sun bx-lg"></i>
-									</div>
-									<div>
-										<p>Sunset</p>
-										<h2>___</h2>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="card">
-							<div class="cardHead">
-								<p>Humidity</p>
-							</div>
-							<div class="cardItem">
-								<i class="bx bx-droplet bx-sm"></i>
-								<h2 id="humidityVal">___%</h2>
-							</div>
-						</div>
-						<div class="card">
-							<div class="cardHead">
-								<p>Visibility</p>
-							</div>
-							<div class="cardItem">
-								<i class="bx bx-low-vision bx-sm"></i>
-								<h2 id="visibilityVal">___KM</h2>
-							</div>
-						</div>
-						<div class="card">
-							<div class="cardHead">
-								<p>Preassure</p>
-							</div>
-							<div class="cardItem">
-								<i class="bx bx-tachometer bx-sm"></i>
-								<h2 id="pressureVal">___hPa</h2>
-							</div>
-						</div>
-						<div class="card">
-							<div class="cardHead">
-								<p>WInd Speed</p>
-							</div>
-							<div class="cardItem">
-								<i class="bx bx-wind bx-sm"></i>
-								<h2 id="speedVal">___m/s</h2>
-							</div>
-						</div>
-						<div class="card">
-							<div class="cardHead">
-								<p>Feels Like</p>
-							</div>
-							<div class="cardItem">
-								<i class="bx bxs-thermometer bx-sm"></i>
-								<h2 id="feelVal">___&deg;C</h2>
-							</div>
-						</div>
-					</div>
-					<h2>Today at</h2>
-					<div class="hourlyForecast">
-						<div class="card">
-							<p>9 AM</p>
-							<img src="https://openweathermap.org/img/wn/04d.png" alt="" />
-							<p>___&deg;C</p>
-						</div>
-						<div class="card">
-							<p>9 AM</p>
-							<img src="https://openweathermap.org/img/wn/04d.png" alt="" />
-							<p>___&deg;C</p>
-						</div>
-						<div class="card">
-							<p>9 AM</p>
-							<img src="https://openweathermap.org/img/wn/04d.png" alt="" />
-							<p>___&deg;C</p>
-						</div>
-						<div class="card">
-							<p>9 AM</p>
-							<img src="https://openweathermap.org/img/wn/04d.png" alt="" />
-							<p>___&deg;C</p>
-						</div>
-						<div class="card">
-							<p>9 AM</p>
-							<img src="https://openweathermap.org/img/wn/04d.png" alt="" />
-							<p>___&deg;C</p>
-						</div>
-						<div class="card">
-							<p>9 AM</p>
-							<img src="https://openweathermap.org/img/wn/04d.png" alt="" />
-							<p>___&deg;C</p>
-						</div>
-						<div class="card">
-							<p>9 AM</p>
-							<img src="https://openweathermap.org/img/wn/04d.png" alt="" />
-							<p>___&deg;C</p>
-						</div>
-						<div class="card">
-							<p>9 AM</p>
-							<img src="https://openweathermap.org/img/wn/04d.png" alt="" />
-							<p>___&deg;C</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<script src="secret.js"></script>
-		<script src="script.js"></script>
-		<script src="https://momentjs.com/downloads/moment.min.js"></script>
-	</body>
+    <div
+     class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 p-5 md:p-10 md:mt-20 lg:mt-0"
+    >
+     <!-- card components -->
+     <div
+      class="flex flex-col gap-4 px-6 py-4 bg-white/60 hover:bg-white/70 backdrop-blur-[1px] rounded-xl border-2 border-blue-500 lg:border-blue-300 hover:border-blue-500 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1"
+      data-aos="fade-up-right"
+      data-aos-delay="800"
+     >
+      <div class="flex flex-row items-center justify-between">
+       <h3 class="text-lg md:text-xl text-shadow-xs font-medium font-mono">
+        Live Updates
+       </h3>
+       <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-tv-icon lucide-tv text-indigo-500"
+       >
+        <path d="m17 2-5 5-5-5" />
+        <rect width="20" height="15" x="2" y="7" rx="2" />
+       </svg>
+      </div>
+      <div class="text-sm lg:text-base text-gray-500 font-sans">
+       Get accurate temperature, pressure, humidity, and wind data updated in
+       real time
+      </div>
+     </div>
+     <!-- card components -->
+     <div
+      class="flex flex-col gap-4 p-6 bg-white/60 hover:bg-white/70 backdrop-blur-[1px] rounded-xl border-2 border-blue-500 lg:border-blue-300 hover:border-blue-500 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1"
+      data-aos="fade-up"
+      data-aos-delay="800"
+     >
+      <div class="flex flex-row items-center justify-between">
+       <h3 class="text-lg md:text-xl text-shadow-xs font-medium font-mono">
+        Air Quality Index
+       </h3>
+       <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-wind-icon lucide-wind text-indigo-500"
+       >
+        <path d="M12.8 19.6A2 2 0 1 0 14 16H2" />
+        <path d="M17.5 8a2.5 2.5 0 1 1 2 4H2" />
+        <path d="M9.8 4.4A2 2 0 1 1 11 8H2" />
+       </svg>
+      </div>
+      <div class="text-sm lg:text-base text-gray-500 font-sans">
+       Monitor PM2.5, PM10, CO, NO₂, and ozone levels to stay safe outdoors
+      </div>
+     </div>
+     <!-- card components -->
+     <div
+      class="flex flex-col gap-4 p-6 bg-white/60 hover:bg-white/70 backdrop-blur-[1px] rounded-xl border-2 border-blue-500 lg:border-blue-300 hover:border-blue-500 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1"
+      data-aos="fade-up"
+      data-aos-delay="800"
+     >
+      <div class="flex flex-row items-center justify-between">
+       <h3 class="text-lg md:text-xl text-shadow-xs font-medium font-mono">
+        5-Day Forecast
+       </h3>
+       <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-cloud-sun-icon lucide-cloud-sun text-indigo-500"
+       >
+        <path d="M12 2v2" />
+        <path d="m4.93 4.93 1.41 1.41" />
+        <path d="M20 12h2" />
+        <path d="m19.07 4.93-1.41 1.41" />
+        <path d="M15.947 12.65a4 4 0 0 0-5.925-4.128" />
+        <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z" />
+       </svg>
+      </div>
+      <div class="text-sm lg:text-base text-gray-500 font-sans">
+       Plan ahead with a clear and easy-to-read forecast for the next five days
+      </div>
+     </div>
+     <!-- card components -->
+     <div
+      class="flex flex-col gap-4 p-6 bg-white/60 hover:bg-white/70 backdrop-blur-[1px] rounded-xl border-2 border-blue-500 lg:border-blue-300 hover:border-blue-500 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1"
+      data-aos="fade-up-left"
+      data-aos-delay="800"
+     >
+      <div class="flex flex-row items-center justify-between">
+       <h3 class="text-lg md:text-xl text-shadow-xs font-medium font-mono">
+        Location Based
+       </h3>
+       <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-map-pin-icon lucide-map-pin text-indigo-500"
+       >
+        <path
+         d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+        />
+        <circle cx="12" cy="10" r="3" />
+       </svg>
+      </div>
+      <div class="text-sm lg:text-base text-gray-500 font-sans">
+       Instantly get weather details using your current location with one click
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+  <!-- footer -->
+  <footer
+   class="md:fixed bottom-0 bg-blue-300/60 backdrop-blur-[1px] border-t border-blue-600 p-4 w-full text-center"
+  >
+   <h2 class="text-lg font-mono">Developed by Upasara 🧑‍💻</h2>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+   AOS.init({ duration: 1000 });
+  </script>
+  <script src="secret.js"></script>
+  <script src="script.js"></script>
+  <script src="https://momentjs.com/downloads/moment.min.js"></script>
+ </body>
 </html>
